@@ -109,9 +109,14 @@ In Vercel project settings, add under **Environment Variables**:
 ```
 DATABASE_URL=postgresql://...  (your production DB)
 NEXTAUTH_SECRET=<generate new random secret>
-OPENROUTER_API_KEY=<your OpenRouter key>
+AUTH_SECRET=<same secret as NEXTAUTH_SECRET>
 NEXTAUTH_URL=https://your-app.vercel.app
+OPENAI_API_KEY=<your OpenAI API key>
+GEMINI_API_KEY=<your Gemini API key>
+OPENROUTER_API_KEY=<your OpenRouter key>
 ```
+
+If your app uses NextAuth authentication in production, `NEXTAUTH_SECRET` or `AUTH_SECRET` must be set. If you deploy without a database, any Prisma-backed API routes will fail.
 
 ### 4. Deploy
 

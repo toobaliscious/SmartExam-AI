@@ -65,6 +65,8 @@ export const authOptions: NextAuthConfig = {
   ],
   secret:
     process.env.NEXTAUTH_SECRET ||
+    process.env.AUTH_SECRET ||
+    process.env.VERCEL_GIT_COMMIT_SHA ||
     (process.env.NODE_ENV === "production" ? undefined : "development-secret"),
   session: {
     strategy: "jwt"
